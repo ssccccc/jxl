@@ -1,0 +1,19 @@
+ <script type="text/javascript">
+        if(window.XMLHttpRequest)
+            xmlhttp=new XMLHttpRequest();
+        else
+            xmlhttp=new ActiveObject("Microsoft.XMLHttp");
+        xmlhttp.open("GET","./geography.xml",false);//false 同步加载
+        xmlhttp.send();
+        xmlDoc=xmlhttp.responseXML;
+        var xmlTestContent=document.getElementById("xmlTest");
+        var nodeList=xmlDoc.getElementsByTagName("Latitude");
+        var string="";
+        for (var i = 0; i <nodeList.length; i++) {
+            // console.log(nodeList[i]);
+           // console.log(nodeList.length);
+            string+=nodeList[i].childNodes[0].nodeValue+","
+            xmlTestContent.innerHTML=string;
+        };
+ </script> 
+ //可参考w3schoolxml实例
